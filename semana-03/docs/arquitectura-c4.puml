@@ -1,0 +1,56 @@
+@startuml
+
+title Micro-HIS - Catálogo de salas, wards y camas\nVista arquitectónica Semana 03
+
+actor "Administrador hospitalario" as User
+
+rectangle "Micro-HIS\nCatálogo de salas, wards y camas" {
+
+    rectangle "Presentation" {
+        component "Formulario Web" as View
+        component "WardBedController" as Controller
+    }
+
+    rectangle "Application" {
+        component "CreateWardAndBed" as UseCase
+        interface "WardRepository" as WardRepo
+        interface "BedRepository" as BedRepo
+    }
+
+    rectangle "Domain" {
+        component "Ward" as Ward
+        component "Bed" as Bed
+        component "BedStatus" as Status
+    }
+
+    rectangle "Persistence" {
+        component "PdoWardRepository" as PdoWard
+        component "PdoBedRepository" as PdoBed
+        database "Base de datos\nMicro-HIS" as DB
+    }
+}
+
+User --> View
+View --> Controller
+Controller --> UseCase
+
+UseCase --> Ward
+UseCase --> Bed
+Bed --> Status
+
+UseCase --> WardRepo
+UseCase --> BedRepo
+
+PdoWard ..|> WardRepo
+PdoBed ..|> BedRepo
+
+PdoWard --> DB
+PdoBed --> DB
+
+note bottom
+PHP 8.2+ vanilla
+PDO con sentencias preparadas
+Sin framework
+end note
+
+@enduml
