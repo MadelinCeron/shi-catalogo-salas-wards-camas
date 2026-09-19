@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f6f8;
+  color: #222;
+}
+
+header {
+  background: #17365d;
+  color: white;
+  padding: 24px;
+}
+
+header h1 {
+  margin: 0 0 6px;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 24px;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.card,
+.cama {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+button {
+  border: 0;
+  padding: 10px 16px;
+  cursor: pointer;
+  background: #17365d;
+  color: white;
+}
+
+button:focus,
+input:focus,
+select:focus {
+  outline: 3px solid #777;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+  max-width: 450px;
+  background: white;
+  padding: 18px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+}
+
+.estado {
+  font-weight: bold;
+}
+
+.oculto {
+  display: none;
+}
+
+#mensaje {
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .encabezado {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}

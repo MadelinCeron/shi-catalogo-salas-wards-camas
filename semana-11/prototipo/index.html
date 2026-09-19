@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Wards y Camas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Catálogo de salas, wards y camas</h1>
+    <p>Prototipo navegable — ASII-06</p>
+  </header>
+
+  <main>
+    <section id="wards">
+      <div class="encabezado">
+        <h2>Wards</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Pediatría</h3>
+          <p>Piso 2 · Edificio A</p>
+          <button onclick="mostrarCamas('Pediatría')">Ver camas</button>
+        </article>
+
+        <article class="card">
+          <h3>Medicina Interna</h3>
+          <p>Piso 3 · Edificio A</p>
+          <button onclick="mostrarCamas('Medicina Interna')">Ver camas</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="camas" class="oculto">
+      <div class="encabezado">
+        <div>
+          <h2 id="tituloWard">Camas</h2>
+          <p>Listado de camas del Ward seleccionado.</p>
+        </div>
+        <button onclick="volver()">Volver</button>
+      </div>
+
+      <div id="listaCamas"></div>
+
+      <h3>Registrar cama</h3>
+
+      <form id="formCama">
+        <label for="codigo">Código</label>
+        <input id="codigo" type="text" required>
+
+        <label for="estado">Estado</label>
+        <select id="estado">
+          <option value="disponible">Disponible</option>
+          <option value="ocupada">Ocupada</option>
+          <option value="limpieza">Limpieza</option>
+          <option value="mantenimiento">Mantenimiento</option>
+        </select>
+
+        <button type="submit">Guardar cama</button>
+      </form>
+
+      <p id="mensaje" role="status"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
